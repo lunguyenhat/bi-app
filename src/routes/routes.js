@@ -7,7 +7,6 @@ import React, { lazy } from 'react';
 
 const LoginPage = lazy(() => import('containers/LoginPage'));
 
-const WelcomePage = lazy(() => import('containers/WelcomePage'));
 const DashboardPage = lazy(() => import('containers/Dashboard'));
 const AudiencePage = lazy(() => import('containers/AudiencePage'));
 const RevenuePage = lazy(() => import('containers/RevenuePage'));
@@ -21,6 +20,7 @@ const SettingPage = lazy(() => import('containers/SettingPage'));
 const HelpCenterPage = lazy(() => import('containers/HelpCenterPage'));
 
 const ProfilePage = lazy(() => import('containers/ProfilePage'));
+const FlowPage = lazy(() => import('containers/FlowDetailPage'));
 
 const authRoutes = [
   {
@@ -54,6 +54,11 @@ const mainRoutes = [
     page: ['behavior-overview', 'behavior-click-anchor', 'behavior-utm-tracking', 'behavior-event'],
     exact: true,
     main: () => <BehaviorPage />,
+  },
+  {
+    path: ['/:domain/flow/:uuid'],
+    exact: true,
+    main: () => <FlowPage />,
   },
   {
     path: '/:domain/subscription',
@@ -92,11 +97,6 @@ const settingRoutes = [
     path: '/profile',
     exact: false,
     main: ({ match, location }) => <ProfilePage match={match} location={location} />,
-  },
-  {
-    path: '/welcome',
-    exact: true,
-    main: () => <WelcomePage />,
   },
 ];
 

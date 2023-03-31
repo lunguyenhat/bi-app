@@ -18,7 +18,7 @@ const ComponentCard = ({
   loading,
 }) => {
   return (
-    <div className="bg-white p-24 shadow-sm rounded-3">
+    <div className="bg-white p-24 shadow-sm rounded-3 h-100">
       <div className="d-flex justify-content-between align-items-center mb-16">
         <div className="d-flex align-items-center position-relative">
           {icon && (
@@ -84,7 +84,7 @@ const ComponentCard = ({
     </div>
   );
 };
-function hexToRGB(hex, alpha) {
+export function hexToRGB(hex, alpha) {
   var r = parseInt(hex.slice(1, 3), 16),
     g = parseInt(hex.slice(3, 5), 16),
     b = parseInt(hex.slice(5, 7), 16);
